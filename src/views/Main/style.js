@@ -39,6 +39,8 @@ export const ProfileFace = styled.img`
 
 export const Absolute = styled.div`
   position: absolute;
+  ${({height}) => height && css`height ${height};`};
+  ${({width}) => width && css`width ${width};`};
   ${({top}) => top && css`top ${top};`};
   ${({left}) => left && css`left ${left};`};
   ${({right}) => right && css`right ${right};`};
@@ -57,7 +59,7 @@ export const Row = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
-  ${({marginLeft}) => marginLeft && css`margin-left : ${marginLeft}`}
+  ${({marginLeft}) => marginLeft && css`margin-left : ${marginLeft};`};
 `
 
 export const ProfileName = styled.p`

@@ -13,4 +13,5 @@ export const Inner = styled.div`
   max-width: 700px;
   height: 100%;
   background: ${colors.blue};
+  overflow-x: hidden;
 `

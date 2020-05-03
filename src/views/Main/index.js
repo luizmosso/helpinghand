@@ -4,6 +4,7 @@ import {
   ProfileFace, Absolute, OuterContainer, Row, ProfileName,
   OptionBox, Option 
 } from './style'
+import Categories from './Categories'
 import { colors } from '../../content/theme'
 import Page from '../../components/Page'
 import AppName from '../../components/AppName'
@@ -12,10 +13,11 @@ import Notification from '../../content/icons/Notification'
 import CreditCard from '../../content/icons/CreditCard'
 import HeartOutline from '../../content/icons/HeartOutline'
 import LogOut from '../../content/icons/LogOut'
-import profilePic from '../../content/images/profilePicture.png'
+import fake from '../../store/fake'
 
 export default function Main(){
 
+  const { user } = fake
   const [slideContent, setSlideContent] = useState(false)
 
   return (
@@ -24,8 +26,8 @@ export default function Main(){
         <Absolute top="15px"><AppName fontSize="2rem" >Helping Hand</AppName></Absolute>
         <OuterContainer>
           <Row>
-            <ProfileFace src={profilePic} />
-            <ProfileName>Sandy BlueSky</ProfileName>
+            <ProfileFace src={user.photo} />
+            <ProfileName>{user.name}</ProfileName>
           </Row>
           <OptionBox>
             <Row marginLeft="30px" >
@@ -48,8 +50,9 @@ export default function Main(){
         </OuterContainer>
         <AbsoluteContainer slide={slideContent}>
           <InnerContainer>
-            <Absolute top="28px" left="15px" >
+            <Absolute top="28px" left="15px" width="calc(100% - 30px)" height="calc(100% - 48px)">
               <Menu size={22} onClick={() => setSlideContent(!slideContent)} />
+              <Categories />
             </Absolute>
           </InnerContainer>
         </AbsoluteContainer>
